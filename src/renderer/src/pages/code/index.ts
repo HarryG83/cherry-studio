@@ -36,7 +36,9 @@ export const CLI_TOOLS = [
   { value: codeTools.iFlowCli, label: 'iFlow CLI' },
   { value: codeTools.githubCopilotCli, label: 'GitHub Copilot CLI' },
   { value: codeTools.kimiCli, label: 'Kimi CLI' },
-  { value: codeTools.openCode, label: 'OpenCode' }
+  { value: codeTools.kiloCli, label: 'Kilo CLI' },
+  { value: codeTools.openCode, label: 'OpenCode' },
+  { value: codeTools.kiloCli, label: 'Kilo CLI' }
 ]
 
 export const GEMINI_SUPPORTED_PROVIDERS = ['aihubmix', 'dmxapi', 'new-api', 'cherryin']
@@ -57,6 +59,7 @@ export const CLI_TOOL_PROVIDER_MAP: Record<string, (providers: Provider[]) => Pr
   [codeTools.iFlowCli]: (providers) => providers.filter((p) => p.type.includes('openai')),
   [codeTools.githubCopilotCli]: () => [],
   [codeTools.kimiCli]: (providers) => providers.filter((p) => p.type.includes('openai')),
+  [codeTools.kiloCli]: (providers) => providers.filter((p) => p.type.includes('openai')),
   [codeTools.openCode]: (providers) =>
     providers.filter((p) => ['openai', 'openai-response', 'anthropic', 'new-api'].includes(p.type))
 }
@@ -204,6 +207,17 @@ export const generateToolEnvironment = ({
       env.KIMI_MODEL_NAME = model.id
       break
 
+    case codeTools.kiloCli:
+      env.KILO_API_KEY = apiKey
+      env.KILO_BASE_URL = formattedBaseUrl
+      env.KILO_MODEL_NAME = model.id
+      break
+
+    case codeTools.kiloCli:
+      env.KILO_API_KEY = apiKey
+      env.KILO_BASE_URL = formattedBaseUrl
+      env.KILO_MODEL_NAME = model.id
+      break
     case codeTools.openCode:
       // Set environment variable with provider-specific suffix for security
       {

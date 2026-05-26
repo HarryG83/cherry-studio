@@ -47,7 +47,8 @@ export const initialState: CodeToolsState = {
     [codeTools.iFlowCli]: null,
     [codeTools.githubCopilotCli]: null,
     [codeTools.kimiCli]: null,
-    [codeTools.openCode]: null
+    [codeTools.openCode]: null,
+    [codeTools.kiloCli]: null
   },
   environmentVariables: {
     'qwen-code': '',
@@ -57,7 +58,8 @@ export const initialState: CodeToolsState = {
     'iflow-cli': '',
     'github-copilot-cli': '',
     'kimi-cli': '',
-    opencode: ''
+    opencode: '',
+    'kilo-cli': ''
   },
   directories: [],
   currentDirectory: '',
@@ -94,6 +96,7 @@ const codeToolsSlice = createSlice({
           'iflow-cli': '',
           'github-copilot-cli': '',
           'kimi-cli': '',
+          'kilo-cli': '',
           opencode: ''
         }
       }

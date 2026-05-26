@@ -123,7 +123,11 @@ const CodeToolsPage: FC = () => {
         return false
       }
 
-      if (selectedCliTool === codeTools.qwenCode || selectedCliTool === codeTools.iFlowCli) {
+      if (
+        selectedCliTool === codeTools.qwenCode ||
+        selectedCliTool === codeTools.iFlowCli ||
+        selectedCliTool === codeTools.kiloCli
+      ) {
         if (m.supported_endpoint_types) {
           return ['openai', 'openai-response'].some((type) =>
             m.supported_endpoint_types?.includes(type as EndpointType)
@@ -141,6 +145,15 @@ const CodeToolsPage: FC = () => {
         // Check if model belongs to openai, openai-response, or anthropic type provider
         const provider = providers.find((p) => p.id === m.provider)
         return !!['openai', 'openai-response', 'anthropic', 'new-api'].includes(provider?.type ?? '')
+      }
+
+      if (selectedCliTool === codeTools.kimiCli || selectedCliTool === codeTools.kiloCli) {
+        if (m.supported_endpoint_types) {
+          return ['openai', 'openai-response'].some((type) =>
+            m.supported_endpoint_types?.includes(type as EndpointType)
+          )
+        }
+        return true
       }
 
       return true

@@ -99,8 +99,12 @@ class CodeToolsService {
         return '@github/copilot'
       case codeTools.kimiCli:
         return 'kimi-cli' // Python package
+      case codeTools.kiloCli:
+        return '@kilocode/cli'
       case codeTools.openCode:
         return 'opencode-ai'
+      case codeTools.kiloCli:
+        return 'kilo-cli'
       default:
         throw new Error(`Unsupported CLI tool: ${cliTool}`)
     }
@@ -122,8 +126,12 @@ class CodeToolsService {
         return 'copilot'
       case codeTools.kimiCli:
         return 'kimi'
+      case codeTools.kiloCli:
+        return 'kilocode'
       case codeTools.openCode:
         return 'opencode'
+      case codeTools.kiloCli:
+        return 'kilocode'
       default:
         throw new Error(`Unsupported CLI tool: ${cliTool}`)
     }
