@@ -235,6 +235,7 @@ export enum codeTools {
   iFlowCli = 'iflow-cli',
   githubCopilotCli = 'github-copilot-cli',
   kimiCli = 'kimi-cli',
+  kiloCli = 'kilo-cli',
   openCode = 'opencode'
 }
 
